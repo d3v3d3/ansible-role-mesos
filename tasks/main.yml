@@ -1,0 +1,10 @@
+---
+- debug: msg="Install Mode is {{mesos_install_mode}}"
+
+# Here we are using the debian package if debian
+- include_vars: "Debian.yml"
+  when: ansible_os_family == "Debian"
+- include: Debian.yml
+  when: ansible_os_family == "Debian"
+
+- include: mesos.yml
